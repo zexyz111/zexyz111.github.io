@@ -16,10 +16,8 @@
 }
 
 html,body{
-    height:100%;
+    min-height:100vh;
     width:100%;
-    background:#000;
-    overflow:hidden;
 }
 
 /* Видео */
@@ -31,22 +29,21 @@ video{
     height:100%;
     object-fit:cover;
     z-index:-2;
-    filter:brightness(0.65) blur(5px);
+    filter:brightness(0.8) blur(3px);
 }
 
-/* Затемнение */
+/* Лёгкое затемнение */
 .overlay{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.45);
+    background:rgba(0,0,0,0.25);
     z-index:-1;
 }
 
 /* Центр */
 .container{
     position:relative;
-    height:100%;
-    width:100%;
+    min-height:100vh;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -68,38 +65,30 @@ video{
     }
 }
 
-/* Ник с градиентом */
+/* Ник — аккуратный градиент */
 h1{
     font-size:clamp(42px,10vw,95px);
     font-weight:900;
-    letter-spacing:18px;
+    letter-spacing:16px;
     text-transform:uppercase;
     margin-bottom:30px;
 
-    background:linear-gradient(
-        90deg,
-        #ffffff,
-        #dcdcdc,
-        #ffffff
-    );
-    background-size:200% auto;
+    background:linear-gradient(90deg,#ffffff,#e6e6e6,#ffffff);
+    background-size:180% auto;
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 
-    animation:shine 4s linear infinite;
-
-    text-shadow:0 0 25px rgba(255,255,255,0.15);
+    animation:shine 6s linear infinite;
 }
 
-/* Анимация перелива */
 @keyframes shine{
     0%{ background-position:0% center; }
-    100%{ background-position:200% center; }
+    100%{ background-position:180% center; }
 }
 
-/* Текст */
+/* Подпись */
 p{
-    color:rgba(255,255,255,0.7);
+    color:rgba(255,255,255,0.75);
     font-size:15px;
     font-weight:600;
     letter-spacing:4px;
@@ -121,11 +110,11 @@ p{
     padding:18px;
     border-radius:50px;
     border:1px solid rgba(255,255,255,0.3);
-    background:rgba(255,255,255,0.10);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
 
-    color:rgba(255,255,255,0.95);
+    color:white;
     font-size:14px;
     font-weight:700;
     letter-spacing:6px;
@@ -137,9 +126,8 @@ p{
 
 .buttons a:hover,
 .buttons button:hover{
-    background:rgba(255,255,255,0.22);
-    border:1px solid rgba(255,255,255,0.45);
-    transform:translateY(-4px);
+    background:rgba(255,255,255,0.25);
+    transform:translateY(-3px);
 }
 
 .buttons a:active,
@@ -151,7 +139,7 @@ p{
 .modal{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.65);
+    background:rgba(0,0,0,0.5);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -168,8 +156,7 @@ p{
 .modal-box{
     padding:30px 60px;
     border-radius:22px;
-    background:rgba(0,0,0,0.9);
-    backdrop-filter:blur(12px);
+    background:rgba(0,0,0,0.85);
     color:white;
     font-size:18px;
     font-weight:700;
